@@ -1,58 +1,111 @@
+"use client";
+
+import { useState, useCallback, useEffect } from "react";
+import Image from "next/image";
+
+const clients = [
+  { name: "KCR", image: "/images/kcr.png" },
+  { name: "Srinivas Yadav", image: "/images/srinivas-yadav.png" },
+  { name: "Padma Rao", image: "/images/padma-rao.png" },
+  { name: "Sri Ganesh", image: "/images/sri-ganesh.png" },
+  { name: "KCR", image: "/images/kcr.png" },
+  { name: "Srinivas Yadav", image: "/images/srinivas-yadav.png" },
+  { name: "Padma Rao", image: "/images/padma-rao.png" },
+  { name: "Sri Ganesh", image: "/images/sri-ganesh.png" },
+];
+
+const CARD_WIDTH = 237;
+const GAP = 20;
+
+function useVisibleCount() {
+  const [count, setCount] = useState(1);
+  useEffect(() => {
+    function update() {
+      setCount(window.innerWidth < 640 ? 1 : window.innerWidth < 1024 ? 2 : 4);
+    }
+    update();
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, []);
+  return count;
+}
+
 export default function TestimonialsSection() {
+  const VISIBLE = useVisibleCount();
+  const [current, setCurrent] = useState(0);
+  const maxIndex = Math.max(0, clients.length - VISIBLE);
+
+  const prev = useCallback(() => setCurrent((c) => Math.max(0, c - 1)), []);
+  const next = useCallback(() => setCurrent((c) => Math.min(maxIndex, c + 1)), []);
+
+  const trackOffset = current * (CARD_WIDTH + GAP);
+
   return (
-    <section id="clients" className="bg-white px-6 py-20">
-      <div className="mx-auto max-w-7xl">
-        <div className="text-center">
-          <h2 className="text-sm font-semibold uppercase tracking-wider text-[#ff7b00]">
+    <section id="clients" className="bg-[#edf2fa] py-[80px]">
+      <div className="mx-auto max-w-[1200px] px-6">
+        <div className="text-center mb-[50px]">
+          <h2 className="text-[24px] font-bold uppercase tracking-wide text-[#0f172a] md:text-[36px]">
             What Our Clients Say
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-2xl font-bold text-[#0f172a] md:text-3xl">
-            Trusted by political leaders across India
-          </p>
         </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {[1, 2, 3].map((i) => (
+        <div className="relative flex items-center justify-center">
+          {/* Left Arrow */}
+          <button
+            onClick={prev}
+            disabled={current === 0}
+            className="absolute -left-[22px] z-10 flex h-[36px] w-[36px] items-center justify-center rounded-full border border-gray-300 bg-white shadow-md transition-opacity disabled:opacity-30 md:-left-[50px] md:h-[44px] md:w-[44px]"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0f172a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+
+          {/* Carousel Track */}
+          <div className="mx-auto overflow-hidden" style={{ width: VISIBLE * CARD_WIDTH + (VISIBLE - 1) * GAP }}>
             <div
-              key={i}
-              className="rounded-xl border border-gray-100 p-6 shadow-sm"
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{
+                gap: GAP,
+                transform: `translateX(-${trackOffset}px)`,
+              }}
             >
-              <div className="mb-4 flex text-[#ff7b00]">
-                {[...Array(5)].map((_, j) => (
-                  <svg
-                    key={j}
-                    className="h-5 w-5"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
-              </div>
-              <p className="text-sm text-[#64748b]">
-                {i === 1 &&
-                  "Bharat Analytica's data-driven approach gave us insights that were game-changing. Their ground network and technology platform is unmatched."}
-                {i === 2 &&
-                  "From strategy to execution, their team was with us at every step. The election management app made coordination seamless across 500+ booths."}
-                {i === 3 &&
-                  "Their survey analytics predicted results with remarkable accuracy. A truly professional team that understands Indian politics deeply."}
-              </p>
-              <div className="mt-4 flex items-center gap-3">
-                <div className="h-10 w-10 rounded-full bg-[#1f3f4b]/10" />
-                <div>
-                  <p className="text-sm font-semibold text-[#0f172a]">
-                    {i === 1 && "Political Leader"}
-                    {i === 2 && "Campaign Manager"}
-                    {i === 3 && "Party Strategist"}
-                  </p>
-                  <p className="text-xs text-[#64748b]">
-                    {i === 1 && "Telangana"}
-                    {i === 2 && "Andhra Pradesh"}
-                    {i === 3 && "Karnataka"}
-                  </p>
+              {clients.map((client, i) => (
+                <div
+                  key={`${client.name}-${i}`}
+                  className="flex-shrink-0 overflow-hidden rounded-[20px] shadow-lg"
+                  style={{ width: CARD_WIDTH }}
+                >
+                  <Image
+                    src={client.image}
+                    alt={client.name}
+                    width={237}
+                    height={474}
+                    className="h-[474px] w-[237px] object-cover"
+                  />
                 </div>
-              </div>
+              ))}
             </div>
+          </div>
+
+          {/* Right Arrow */}
+          <button
+            onClick={next}
+            disabled={current >= maxIndex}
+            className="absolute -right-[22px] z-10 flex h-[36px] w-[36px] items-center justify-center rounded-full border border-gray-300 bg-white shadow-md transition-opacity disabled:opacity-30 md:-right-[50px] md:h-[44px] md:w-[44px]"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0f172a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
+
+        {/* Pagination Dots */}
+        <div className="mt-8 flex items-center justify-center gap-2">
+          {Array.from({ length: maxIndex + 1 }).map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrent(i)}
+              className={`h-2.5 rounded-full transition-all ${
+                i === current ? "w-8 bg-[#ff7b00]" : "w-2.5 bg-gray-300"
+              }`}
+            />
           ))}
         </div>
       </div>

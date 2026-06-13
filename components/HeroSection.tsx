@@ -1,58 +1,56 @@
+import Image from "next/image";
+
 const stats = [
-  { value: "50M+", label: "Voter Profiles" },
-  { value: "500K+", label: "Booth Records" },
-  { value: "28+", label: "States Covered" },
-  { value: "98%", label: "Accuracy Rate" },
+  { value: "10+ Years", label: "EXPERIENCE" },
+  { value: "200+", label: "HAPPY CLIENTS" },
+  { value: "1 Crore+", label: "VOTER CONTACTS" },
+  { value: "5+ States", label: "COVERED" },
 ];
 
 export default function HeroSection() {
   return (
     <section
       id="home"
-      className="relative overflow-hidden bg-gradient-to-br from-[#1e272c] to-[#1f3f4c] px-6 py-24 text-white md:py-32"
+      className="relative overflow-hidden bg-gradient-to-br from-[#1e272c] to-[#1f3f4c]"
     >
-      {/* Background decoration */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute -right-20 -top-20 h-96 w-96 rounded-full bg-[#ff7b00] blur-3xl" />
-        <div className="absolute -bottom-20 -left-20 h-96 w-96 rounded-full bg-teal-400 blur-3xl" />
-      </div>
-
-      <div className="relative mx-auto max-w-7xl">
-        <div className="max-w-3xl">
-          <h1 className="text-4xl font-bold leading-tight md:text-5xl lg:text-[45px]">
-            We provide most reliable{" "}
-            <span className="text-[#ff7b00]">political consulting</span> &
-            election management support...
+      <div className="mx-auto flex max-w-[1440px] items-center px-6 py-[50px] md:px-[120px] md:py-[90px]">
+        {/* Left Content */}
+        <div className="relative z-10 max-w-[620px]">
+          <h1 className="text-[28px] font-medium leading-[36px] text-white md:text-[45px] md:leading-[56px]">
+            We provide{" "}
+            most reliable{" "}
+            <span className="font-bold">political consulting</span> &{" "}
+            <span className="font-bold text-[#ff7b00]">election management</span>{" "}
+            <span className="text-[#ff7b00]">support...</span>
           </h1>
-          <p className="mt-6 text-lg text-white/80 md:text-xl">
+
+          {/* Divider line */}
+          <div className="mt-6 h-px w-full bg-white/20" />
+
+          <p className="mt-4 text-[16px] font-light italic text-white/80 md:text-[25px]">
             By using most advanced technology and methods
           </p>
-          <div className="mt-8 flex flex-wrap gap-4">
-            <a
-              href="#contact"
-              className="rounded-lg bg-[#ff7b00] px-8 py-3 font-semibold text-white transition-colors hover:bg-[#e66e00]"
-            >
-              Get Started
-            </a>
-            <a
-              href="#services"
-              className="rounded-lg border border-white/30 px-8 py-3 font-semibold text-white transition-colors hover:bg-white/10"
-            >
-              Our Services
-            </a>
+
+          {/* Stats Bar */}
+          <div className="mt-6 flex w-full max-w-[584px] items-center rounded-[16px] bg-[#1f3f4b] overflow-hidden md:mt-10">
+            {stats.map((stat, i) => (
+              <div key={stat.label} className={`flex-1 py-[12px] text-center md:py-[18px] ${i < stats.length - 1 ? 'border-r border-white/10' : ''}`}>
+                <p className="text-[14px] font-bold text-white md:text-[24px]">{stat.value}</p>
+                <p className="text-[12px] text-white/60">{stat.label}</p>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* Stats Bar */}
-        <div className="mt-16 grid grid-cols-2 gap-4 rounded-xl bg-[#1f3f4b] p-6 md:grid-cols-4 md:gap-8 md:p-8">
-          {stats.map((stat) => (
-            <div key={stat.label} className="text-center">
-              <p className="text-2xl font-bold text-white md:text-3xl">
-                {stat.value}
-              </p>
-              <p className="mt-1 text-sm text-white/70">{stat.label}</p>
-            </div>
-          ))}
+        {/* Hero Illustration */}
+        <div className="absolute right-[60px] top-1/2 hidden -translate-y-1/2 lg:block">
+          <Image
+            src="/images/hero-illustration.svg"
+            alt="India Map Analytics"
+            width={450}
+            height={450}
+            priority
+          />
         </div>
       </div>
     </section>
