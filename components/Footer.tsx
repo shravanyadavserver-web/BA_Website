@@ -46,7 +46,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-2">
                 <Image src="/images/icon-phone.svg" alt="" width={14} height={14} className="opacity-60 brightness-0 invert" />
-                <span className="text-[12px] text-white/60">+91 888 555 0052</span>
+                <span className="text-[12px] text-white/60">+91 888 555 1660</span>
               </div>
               <div className="flex items-center gap-2">
                 <Image src="/images/icon-location.svg" alt="" width={14} height={14} className="opacity-60 brightness-0 invert" />
@@ -72,7 +72,7 @@ export default function Footer() {
           </div>
 
           {/* Link Columns */}
-          {Object.entries(footerLinks).map(([title, links]) => (
+          {/* {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
               <h3 className="mb-4 text-[13px] font-semibold">{title}</h3>
               <ul className="space-y-2">
@@ -88,7 +88,7 @@ export default function Footer() {
                 ))}
               </ul>
             </div>
-          ))}
+          ))} */}
         </div>
 
         <div className="mt-12 border-t border-white/10 pt-6 text-center text-[12px] text-white/40">

@@ -45,7 +45,7 @@ export default function TestimonialsSection() {
       <div className="mx-auto max-w-[1200px] px-6">
         <div className="text-center mb-[50px]">
           <h2 className="text-[24px] font-bold uppercase tracking-wide text-[#0f172a] md:text-[36px]">
-            What Our Clients Say
+            Our Clients
           </h2>
         </div>
 

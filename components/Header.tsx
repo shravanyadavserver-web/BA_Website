@@ -68,7 +68,7 @@ export default function Header() {
           </div>
           <div className="flex items-center gap-2 rounded-[35px] border border-gray-200 px-3 py-2">
             <Image src="/images/icon-phone.svg" alt="" width={16} height={16} />
-            <span className="text-[13px] text-[#111111]">+91 888 555 0052</span>
+            <span className="text-[13px] text-[#111111]">+91 888 555 1660</span>
           </div>
         </div>
 

@@ -42,7 +42,7 @@ export default function WhyChooseSection() {
             Why Choose Bharat Analytica?
           </h2>
           <p className="mx-auto mt-3 max-w-[500px] text-[14px] text-[#64748b]">
-            Comprehensive solutions for every stage of your political journey
+            Comprehensive solutions for every stage of your journey
           </p>
         </div>
 

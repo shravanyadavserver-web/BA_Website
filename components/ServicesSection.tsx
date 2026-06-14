@@ -2,49 +2,49 @@ import Image from "next/image";
 
 const services = [
   {
-    title: "Election Management",
+    title: "ELECTION MANAGEMENT",
     description: "End-to-end election management with booth level planning to results.",
     icon: "/images/icon-election-management.svg",
     iconBg: "rgba(255, 123, 0, 0.07)",
   },
   {
-    title: "Political Consulting",
+    title: "POLITICAL COUNSULTING",
     description: "Strategy, analysis & intelligence for winning election outcomes.",
     icon: "/images/icon-political-consulting.svg",
     iconBg: "rgba(59, 130, 246, 0.07)",
   },
   {
-    title: "Surveys & Analytics",
+    title: "SURVEYS & ANALYTICS",
     description: "Opinion polls, voter insights & data analytics for accurate decision making.",
     icon: "/images/icon-surveys-analytics.svg",
     iconBg: "rgba(16, 185, 129, 0.07)",
   },
   {
-    title: "Advertising & PR",
+    title: "ADVERTISING & PR",
     description: "Creative campaigns & public relations to build strong image & connect.",
     icon: "/images/icon-advertising-pr.svg",
     iconBg: "rgba(139, 92, 246, 0.07)",
   },
   {
-    title: "Digital Marketing",
+    title: "DIGITAL MARKETING",
     description: "Social media, content & digital campaigns that drive engagement.",
     icon: "/images/icon-digital-marketing.svg",
     iconBg: "rgba(236, 72, 153, 0.07)",
   },
   {
-    title: "Technology Solutions",
+    title: "TECHNOLOGY SOLUTIONS",
     description: "Powerful apps & platforms for campaign & data management.",
     icon: "/images/icon-technology-solutions.svg",
     iconBg: "rgba(102, 0, 0, 0.07)",
   },
   {
-    title: "Road Shows & Events",
+    title: "ROAD SHOWS & EVENTS",
     description: "Planning & execution of public meetings, road shows & large-scale events.",
     icon: "/images/icon-road-shows.svg",
     iconBg: "rgba(6, 182, 212, 0.07)",
   },
   {
-    title: "Manpower Assistance",
+    title: "MANPOWER ASSISTANCE",
     description: "Trained manpower & field teams for effective campaign execution.",
     icon: "/images/icon-manpower-assistance.svg",
     iconBg: "rgba(34, 197, 94, 0.07)",

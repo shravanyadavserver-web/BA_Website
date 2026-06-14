@@ -3,7 +3,7 @@ import Image from "next/image";
 const stats = [
   { value: "10+ Years", label: "EXPERIENCE" },
   { value: "200+", label: "HAPPY CLIENTS" },
-  { value: "1 Crore+", label: "VOTER CONTACTS" },
+  { value: "1 Crore+", label: "VOTER CONNECTS" },
   { value: "5+ States", label: "COVERED" },
 ];
 
@@ -13,14 +13,15 @@ export default function HeroSection() {
       id="home"
       className="relative overflow-hidden bg-gradient-to-br from-[#1e272c] to-[#1f3f4c]"
     >
-      <div className="mx-auto flex max-w-[1440px] items-center px-6 py-[50px] md:px-[120px] md:py-[90px]">
+      <div className="mx-auto flex max-w-[1440px] flex-col items-center px-6 py-[50px] md:flex-row md:px-[120px] md:py-[90px]">
         {/* Left Content */}
         <div className="relative z-10 max-w-[620px]">
-          <h1 className="text-[28px] font-medium leading-[36px] text-white md:text-[45px] md:leading-[56px]">
-            We provide{" "}
-            most reliable{" "}
-            <span className="font-bold">political consulting</span> &{" "}
-            <span className="font-bold text-[#ff7b00]">election management</span>{" "}
+          <h1 className="text-[28px] font-medium uppercase leading-[36px] text-white md:text-[45px] md:leading-[56px]">
+            We provide<br />
+            most reliable <span className="font-bold">political</span><br />
+            <span className="font-bold">consulting</span> &{" "}
+            <span className="font-bold text-[#ff7b00]">election</span><br />
+            <span className="font-bold text-[#ff7b00]">management</span>{" "}
             <span className="text-[#ff7b00]">support...</span>
           </h1>
 
@@ -28,7 +29,7 @@ export default function HeroSection() {
           <div className="mt-6 h-px w-full bg-white/20" />
 
           <p className="mt-4 text-[16px] font-light italic text-white/80 md:text-[25px]">
-            By using most advanced technology and methods
+            BY USING MOST ADVANCED TECHNOLOGY AND METHODS
           </p>
 
           {/* Stats Bar */}
@@ -42,13 +43,14 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Hero Illustration */}
-        <div className="absolute right-[60px] top-1/2 hidden -translate-y-1/2 lg:block">
+        {/* Hero Illustration - below content on mobile, absolute right on desktop */}
+        <div className="mt-8 flex justify-center md:mt-0 md:absolute md:right-[60px] md:top-1/2 md:-translate-y-1/2">
           <Image
             src="/images/hero-illustration.svg"
             alt="India Map Analytics"
             width={450}
             height={450}
+            className="h-[200px] w-auto md:h-[450px]"
             priority
           />
         </div>
