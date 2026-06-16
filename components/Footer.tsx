@@ -92,14 +92,19 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 border-t border-white/10 pt-6 flex flex-col items-center gap-4">
-          <iframe
-            id="Iframe1"
-            src="https://dunsregistered.dnb.com/SealAuthentication.aspx?Cid=1"
-            width={114}
-            height={97}
-            style={{ border: 0, overflow: "hidden", background: "transparent" }}
-            title="DUNS Registered Seal"
-          ></iframe>
+          <div className="flex flex-col items-center gap-1">
+            <div className="bg-white rounded p-1">
+              <iframe
+                id="Iframe1"
+                src="https://dunsregistered.dnb.com/SealAuthentication.aspx?Cid=1"
+                width={114}
+                height={97}
+                style={{ border: 0, overflow: "hidden" }}
+                title="DUNS Registered Seal"
+              ></iframe>
+            </div>
+            <span className="text-[10px] text-white/40">D-U-N-S® Registered</span>
+          </div>
           <p className="text-[12px] text-white/40">
             © 2026 Bharat Analytica. All rights reserved.
           </p>
